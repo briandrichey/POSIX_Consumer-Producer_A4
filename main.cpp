@@ -3,6 +3,10 @@
 #include <semaphore.h>
 #include "buffer.h"
 
+pthread_mutex_t mutex
+sem_t full
+sem_t empty
+
 int insert_item(buffer_item item);
 int remove_item(buffer_item* item);
 
@@ -11,7 +15,7 @@ void* producer(void* param) {
 	buffer_item item;
 
 	while (true) {
-		//sleep for random time
+		sleep(rand() % 3)
 		//sleep(...);
 		//generate random number
 		item = rand();
