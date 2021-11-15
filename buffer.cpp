@@ -17,7 +17,7 @@ int insert_item(buffer_item item) {
 	  if ((fpos == 0 && rpos == BUFFER_SIZE-1) ||
             (rpos == (fpos-1)%(BUFFER_SIZE-1)))
     {
-        printf("\nBuffer is Full");
+        cout<<"Buffer is Full"<<endl;
         return -1;
     }
  
@@ -48,7 +48,7 @@ int remove_item(buffer_item* item) {
 	*/
 	 if (fpos == -1)
     {
-        printf("\nQueue is Empty");
+        cout<<"Buffer is Empty"<<endl;
         return -1;
     }
  
@@ -66,4 +66,28 @@ int remove_item(buffer_item* item) {
  
     return item;
 	return 0;
+}
+
+void display_buffer()
+{
+    if (fpos == -1)
+    {
+        cout<<"Buffer is Empty"<<endl;
+        return;
+    }
+    printf("\nThe current content of the buffer is [");
+    if (rpos >= fpos)
+    {
+        for (int i = fpos; i <= rpos; i++)
+            cout<<buffer[i]<<",";
+    }
+    else
+    {
+        for (int i = fpos; i < BUFFER_SIZE; i++)
+            cout<<buffer[i]<<",";
+ 
+        for (int i = 0; i <= rpos; i++)
+            cout<<buffer[i]<<",";
+    }
+	cout<<"]"<<endl;
 }
