@@ -75,7 +75,7 @@ void display_buffer()
         cout<<"Buffer is Empty"<<endl;
         return;
     }
-    printf("\nThe current content of the buffer is [");
+    cout<<"The current content of the buffer is [";
     if (rpos >= fpos)
     {
         for (int i = fpos; i <= rpos; i++)
